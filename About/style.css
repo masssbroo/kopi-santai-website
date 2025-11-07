@@ -1,0 +1,21 @@
+    #gallery figure {
+    margin: 0;
+  }
+
+  #gallery img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 30px; /* tetap oval seperti contoh sebelumnya */
+  }
+
+  #gallery figcaption {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  #gallery h2 {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
