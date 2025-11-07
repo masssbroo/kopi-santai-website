@@ -1,0 +1,519 @@
+/* ===================================================================
+   STYLE.CSS - KOPI SANTAI
+   -------------------------------------------------------------------
+   1. CSS Variables & Reset
+   2. Base & Typography
+   3. Layout (Container, Header, Footer)
+   4. Components (Button, Menu Card, Badges)
+   5. Page-Specific (Hero, Featured, Why Us, Menu Filter)
+   6. Animations & Transitions
+   7. Style Tambahan (Perbaikan)
+=================================================================== */
+
+/* ======================= 1. CSS VARIABLES & RESET ======================= */
+:root {
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+    
+    --color-primary: #A0522D; /* Sienna Brown */
+    --color-secondary: #D2B48C; /* Tan */
+    --color-dark: #3B2F2F;      /* Dark Brown */
+    --color-light: #F5F5DC;     /* Beige */
+    --color-white: #FFFFFF;
+    --color-text: #333333;
+    
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --transition-fast: 0.3s ease;
+}
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px; /* Basis untuk 'rem' */
+    scroll-behavior: smooth; 
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-white);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ======================= 2. BASE & TYPOGRAPHY ======================= */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+    color: var(--color-dark);
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.1rem; }
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    color: var(--color-dark);
+}
+
+/* ======================= 3. LAYOUT ======================= */
+.container {
+    width: 90%;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Header & Navigation (Flexbox) --- */
+.header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-light);
+    padding: 1rem 0;
+    z-index: 1000;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* === PERUBAHAN UNTUK LOGO DIMULAI DI SINI === */
+
+/* 1. KODE BARU DITAMBAHKAN (Mengatur agar logo & teks berdampingan) */
+.header__branding {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* Jarak 12px antara logo dan teks */
+}
+
+/* 2. KODE BARU DITAMBAHKAN (Mengatur ukuran logo) */
+.header__logo-img {
+    height: 50px; /* Sesuaikan tinggi logo Anda di sini */
+    width: auto;
+    display: block; /* Menghilangkan spasi ekstra di bawah gambar */
+}
+
+/* 3. KODE BARU DITAMBAHKAN (Memastikan link logo rapi) */
+.header__logo-link {
+    display: block;
+}
+
+/* 4. KODE BARU DITAMBAHKAN (Grup untuk teks) */
+.header__text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 5. NAMA CLASS INI DIUBAH (dari .header__logo menjadi .header__logo-name) */
+.header__logo-name {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    text-decoration: none; /* Menghilangkan garis bawah link */
+}
+
+/* === AKHIR DARI PERUBAHAN LOGO === */
+
+
+.header__tagline {
+    font-size: 0.8rem;
+    margin-top: -5px; /* Kode ini tetap sama, dan sudah benar */
+    color: var(--color-text);
+}
+
+.nav__list {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav__link {
+    font-weight: 700;
+    color: var(--color-dark);
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid transparent;
+    transition: var(--transition-fast);
+}
+
+.nav__link:hover,
+.nav__link--active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+.nav__toggle {
+    display: none; 
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.nav__toggle-bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: var(--color-dark);
+    transition: var(--transition-fast);
+}
+
+/* --- Footer (Flexbox) --- */
+.footer {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    padding: 3rem 0 0;
+    margin-top: 4rem;
+}
+
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer__col {
+    flex-basis: 300px; 
+}
+
+.footer__title {
+    font-family: var(--font-heading);
+    color: var(--color-white);
+    margin-bottom: 1rem;
+}
+
+.footer__address a,
+.footer__list li {
+    color: var(--color-light);
+    line-height: 1.8;
+}
+
+.footer__address a:hover {
+    text-decoration: underline;
+}
+
+.footer__social-links {
+    display: flex;
+    gap: 1rem;
+}
+.footer__social-links a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    font-weight: 700;
+    transition: var(--transition-fast);
+}
+.footer__social-links a:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.footer__copyright {
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid #555;
+    font-size: 0.9rem;
+}
+
+/* ======================= 4. COMPONENTS ======================= */
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: var(--transition-fast);
+}
+
+.btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+}
+.btn--primary:hover {
+    background-color: #80411f;
+    border-color: #80411f;
+    transform: translateY(-2px);
+}
+
+.btn--secondary {
+    background-color: transparent;
+    color: var(--color-white); 
+    border-color: var(--color-white);
+}
+.btn--secondary:hover {
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    transform: translateY(-2px);
+}
+
+.btn--filter {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    padding: 0.5rem 1rem;
+}
+.btn--filter:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* --- Menu Cards (CSS Grid internal) --- */
+.menu-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    transition: var(--transition-fast);
+    position: relative;
+    display: flex; 
+    flex-direction: column;
+}
+
+.menu-card:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-hover);
+}
+
+.menu-card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; 
+}
+
+.menu-card__figure {
+    position: relative;
+}
+.menu-card__figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--color-white);
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    width: 100%;
+    opacity: 0;
+    transition: var(--transition-fast);
+}
+.menu-card:hover .menu-card__figcaption {
+    opacity: 1;
+}
+
+.menu-card__content {
+    padding: 1.5rem;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-card__title {
+    margin-bottom: 0.5rem;
+}
+
+.menu-card__description {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    flex-grow: 1; 
+}
+
+.menu-card__price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-top: auto; 
+}
+
+/* --- Badges --- */
+.menu-card__badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    z-index: 10;
+}
+
+.menu-card__badge--new {
+    background-color: #2E8B57; /* Sea Green */
+}
+
+
+/* ======================= 5. PAGE-SPECIFIC ======================= */
+
+/* --- Hero Section --- */
+.hero {
+    position: relative;
+    height: 90vh;
+    background-image: url('../images/hero-background.jpg'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-white);
+}
+
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.hero__content {
+    position: relative; 
+    z-index: 2;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    animation: fadeInOnLoad 1.5s ease-out;
+}
+
+.hero__title {
+    font-size: 3.5rem;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+}
+
+.hero__subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.hero__cta-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* --- Featured Menu (CSS Grid) --- */
+.featured-menu {
+    padding: 4rem 0;
+    background-color: var(--color-light);
+}
+
+.featured-menu__grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default mobile 1 kolom */
+    gap: 1.5rem;
+}
+
+/* --- Why Choose Us (CSS Grid) --- */
+.why-us {
+    padding: 4rem 0;
+}
+
+.why-us__grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default mobile 1 kolom */
+    gap: 2rem;
+}
+
+.why-us__item {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.why-us__icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    object-fit: contain; 
+}
+
+/* --- Menu Page: Filter (Flexbox) --- */
+.menu-filter {
+    padding: 2rem 0;
+    background-color: var(--color-light);
+}
+
+.menu-filter__nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+    gap: 0.75rem;
+}
+
+/* --- Menu Page: Grid (CSS Grid) --- */
+.menu-grid-section {
+    padding: 3rem 0;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default mobile 1 kolom */
+    gap: 1.5rem;
+}
+
+
+/* ======================= 6. ANIMATIONS & TRANSITIONS ======================= */
+@keyframes fadeInOnLoad {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ======================= 7. STYLE TAMBAHAN (PERBAIKAN) ======================= */
+
+/* --- Style untuk Tombol Filter Aktif --- */
+.btn--filter-active {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
