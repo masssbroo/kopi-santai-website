@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservasi - Kopi Santai</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header__container">
+            <div class="header__branding">
+                <a href="index.html" class="header__logo-link">
+                    <img src="images/logo kopi.jpg" alt="Logo Kopi Santai" class="header__logo-img">
+                </a>
+                <div class="header__text-group">
+                    <a href="index.html" class="header__logo-name">Kopi Santai</a>
+                    <p class="header__tagline">Nikmati Setiap Tegukan</p>
+                </div>
+            </div>
+            <nav class="nav">
+                <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="nav__toggle-bar"></span><span class="nav__toggle-bar"></span><span class="nav__toggle-bar"></span>
+                </button>
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="menu.html" class="nav__link">Menu</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="reservation.html" class="nav__link btn btn--primary">Reservation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="reservation-info section-padding">
+            <div class="container">
+                <h1 class="section-title">Reservasi Meja</h1>
+                <p class="text-center">Pastikan momen spesial Anda tidak terganggu. Silakan isi formulir di bawah ini untuk mengamankan meja Anda.</p>
+                
+                <div class="reservation-rules">
+                    <h3>Ketentuan Reservasi:</h3>
+                    <ul>
+                        <li>Reservasi ditahan maksimal 15 menit dari jam yang ditentukan.</li>
+                        <li>Dilarang membawa makanan dan minuman dari luar.</li>
+                        <li>Untuk grup di atas 10 orang, silakan hubungi kami langsung via WhatsApp.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="container form-layout">
+            <section class="reservation-form-section">
+                <form action="#" method="POST" class="reservation-form">
+                    
+                    <fieldset class="form-group">
+                        <legend>Informasi Pribadi</legend>
+                        
+                        <div class="form-row">
+                            <label for="name">Nama Lengkap <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" placeholder="Contoh: Budi Santoso" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="budi@email.com" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="phone">No. Telepon <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="0812xxxxxxx" pattern="[0-9]{10,13}" required title="Masukkan nomor HP yang valid (10-13 digit)">
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <legend>Detail Kunjungan</legend>
+                        
+                        <div class="form-row">
+                            <label for="date">Tanggal <span class="required">*</span></label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="time">Waktu Kedatangan <span class="required">*</span></label>
+                            <input type="time" id="time" name="time" min="08:00" max="21:00" required>
+                            <small>Jam operasional: 08:00 - 22:00</small>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="pax">Jumlah Orang <span class="required">*</span></label>
+                            <select id="pax" name="pax" required>
+                                <option value="" disabled selected>Pilih jumlah orang</option>
+                                <option value="1">1 Orang</option>
+                                <option value="2">2 Orang</option>
+                                <option value="3">3 Orang</option>
+                                <option value="4">4 Orang</option>
+                                <option value="5">5 Orang</option>
+                                <option value="6">6 Orang</option>
+                                <option value="7">7 Orang</option>
+                                <option value="8">8 Orang</option>
+                                <option value="9">9 Orang</option>
+                                <option value="10">10 Orang</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="table-type">Tipe Meja</label>
+                            <select id="table-type" name="table-type">
+                                <option value="regular">Regular Table</option>
+                                <option value="window">Window Seat (Dekat Jendela)</option>
+                                <option value="outdoor">Outdoor Area (Smoking)</option>
+                                <option value="private">Private Room (Min. 6 orang)</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <legend>Tambahan</legend>
+                        
+                        <div class="form-row">
+                            <label for="notes">Catatan Khusus</label>
+                            <textarea id="notes" name="notes" rows="4" placeholder="Misal: Kursi bayi, kejutan ulang tahun, alergi, dll."></textarea>
+                        </div>
+
+                        <div class="form-row checkbox-row">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">Saya menyetujui syarat dan ketentuan reservasi yang berlaku.</label>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="btn btn--primary btn--block">Kirim Reservasi</button>
+                </form>
+            </section>
+
+            <aside class="contact-aside">
+                <div class="contact-card">
+                    <h3>Butuh Bantuan Cepat?</h3>
+                    <p>Jika Anda ingin melakukan reservasi mendadak atau untuk acara besar, silakan hubungi kami langsung.</p>
+                    <a href="https://wa.me/628817269907" class="btn btn--secondary btn--block">Chat WhatsApp</a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__col">
+                <h4 class="footer__title">Kontak Kami</h4>
+                <address class="footer__address">
+                    Jl. Kopi No. 123, Jakarta Selatan<br>
+                    Indonesia 12345<br>
+                    <a href="tel:+628817269907">Telepon: (021) 555-1234</a><br>
+                    <a href="mailto:info@kopisantai.com">Email: info@kopisantai.com</a>
+                </address>
+            </div>
+            <div class="footer__col">
+                <h4 class="footer__title">Jam Operasional</h4>
+                <ul class="footer__list">
+                    <li>Senin - Jumat: 08:00 - 22:00</li>
+                    <li>Sabtu - Minggu: 09:00 - 23:00</li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4 class="footer__title">Ikuti Kami</h4>
+                <div class="footer__social-links">
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="Facebook">FB</a>
+                    <a href="#" aria-label="WhatsApp">WA</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <p>&copy; 2025 Kopi Santai. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.querySelector('.nav__toggle');
+        const navList = document.querySelector('.nav__list');
+        navToggle.addEventListener('click', () => {
+            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !isExpanded);
+            navList.classList.toggle('nav__list--visible');
+        });
+        
+        // Script sederhana untuk memastikan tanggal reservasi tidak bisa hari kemarin
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+    </script>
+</body>
+</html>

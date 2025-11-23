@@ -7,16 +7,17 @@
     --color-light: #F5F5DC;
     --color-white: #FFFFFF;
     --color-text: #333333;
-    --color-gray: #f9f9f9;
+    --color-gray: #f4f4f4;
     --color-error: #e74c3c;
     --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
     --shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.1);
     --border-radius: 8px;
     --transition-fast: 0.3s ease;
-    --header-height: 80px;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -25,7 +26,6 @@
 html {
     font-size: 16px;
     scroll-behavior: smooth;
-    scroll-padding-top: 100px;
 }
 
 body {
@@ -240,7 +240,6 @@ h4 { font-size: 1.1rem; }
     transition: var(--transition-fast);
     font-family: var(--font-body);
     font-size: 1rem;
-    white-space: nowrap;
 }
 
 .btn--primary {
@@ -473,7 +472,7 @@ h4 { font-size: 1.1rem; }
     border-radius: 50%;
     margin: 0 auto 1.5rem;
     object-fit: cover;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .menu-filter {
@@ -489,8 +488,14 @@ h4 { font-size: 1.1rem; }
 }
 
 @keyframes fadeInOnLoad {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .section-padding {
@@ -598,7 +603,7 @@ blockquote cite {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     color: white;
     padding: 0.5rem;
     text-align: center;
@@ -692,12 +697,6 @@ textarea:focus {
     outline: none;
     border-color: var(--color-primary);
     box-shadow: 0 0 0 3px rgba(160, 82, 45, 0.1);
-}
-
-select,
-.checkbox-row input,
-.checkbox-row label {
-    cursor: pointer;
 }
 
 textarea {
